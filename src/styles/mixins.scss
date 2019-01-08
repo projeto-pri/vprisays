@@ -1,0 +1,14 @@
+@mixin bg-adapter($bg) {
+  background: $bg;
+
+  &:hover {
+    background:darken($bg,15%);
+  }
+  &:active {
+    background:darken($bg,25%);
+  }
+  &:disabled {
+    background:darken(white, 40%);
+    color:darken(white, 20%);
+  }
+}

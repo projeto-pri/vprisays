@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  position: relative;
+  flex-flow: row wrap;
+}
+
+.flex {
+  flex: 1;
+}
+
+.content-center {
+  justify-content: center;
+  align-content: center;
+}
+
+.items-center {
+  justify-items: center;
+  align-items: center;
+}
+
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}

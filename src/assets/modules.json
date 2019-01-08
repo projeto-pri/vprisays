@@ -1,0 +1,32 @@
+[
+  {
+    "text": "Eu estou",
+    "options": [
+      { "text": "com fome" },
+      { "text": "com sede" },
+      { "text": "com frio" },
+      { "text": "com calor" }
+    ]
+  },
+  {
+    "text": "Eu preciso",
+    "options": [
+        { "text": "usar o banheiro" },
+        { "text": "tomar um banho" },
+        { "text": "dormir" },
+        { "text": "tomar remédio" },
+        { "text": "de um médico" },
+        { "text": "de uma enfermeira" }
+    ]
+  },
+  {
+    "text": "Eu queria",
+    "options": [
+        { "text": "um abraço" },
+        { "text": "um beijo" },
+        { "text": "sair daqui" },
+        { "text": "assistir" },
+        { "text": "mudar de canal" }
+    ]
+  }
+]
