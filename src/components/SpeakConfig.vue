@@ -12,10 +12,8 @@ export default {
   props: { voices: { default: [] } },
   data: () => ({
     lang: 'pt-BR'
-  }),
-  methods: {
-  }
-}
+  })
+};
 </script>
 
 <style scoped>

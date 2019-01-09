@@ -1,61 +1,68 @@
 <template>
-  <header>
-    <a class="title-page" title="PriVue" to="/"><h1>PriVue</h1></a>
+  <nav class="row wrap">
+    <a title="PriVue" to="/">
+      <h1 class="title-page">PriVue</h1>
+    </a>
     <ul class="navigation">
       <li class="nav-item">Ajuda</li>
       <li class="nav-item">Projeto</li>
       <li class="nav-item">Contribuidores</li>
     </ul>
-  </header>
+  </nav>
 </template>
 
 <script>
 export default {
-  name: 'Navbar'
-}
+  name: "Navbar"
+};
 </script>
 
 <style scoped lang="scss">
-@import '../styles/colors.scss';
-
-header {
-  display: flex;
-  flex-flow: row wrap;
-  align-content: center;
-  align-items: center;
-  padding: 0 15px;
-  margin-bottom: 15px;
+nav {
   background: $darken;
+  padding: 0 15px;
   color: white;
-  user-select: none;
-  box-shadow: 0px 1px 10px 0px rgba(0,0,0,0.2)
-}
+  margin-bottom: 15px;
+  justify-content: space-between;
+  box-shadow: 0px 2px 5px 0px #00000033;
 
-.title-page {
-  flex: 1;
-
-  h1 {
-    font-size: 2em;
-    font-weight: 300;
-    margin: 0;
+  @media screen and (max-width: 460px) {
+    justify-content: center;
   }
 }
 
-.navigation {
-  list-style: none;
+.title-page {
+  font-size: 2em;
+  font-weight: 300;
   margin: 0;
+  padding: 0.3em;
+}
+
+.navigation {
+  display: inline-flex;
+  flex-flow: row nowrap;
   justify-content: flex-end;
-  display: flex;
+  align-items: flex-start;
+
+  * {
+    flex: 0 1 auto;
+  }
+
+  @media screen and (max-width: 460px) {
+    justify-content: center;
+  }
 }
 
 .nav-item {
   flex: 1;
-  padding: 1.2em;
   font-weight: 300;
+  color: #dedede;
+  font-size: 1.1em;
+  padding: 1.1em;
 
   &:hover {
-    background:darken($primary, 25%);
-    zoom: 102%;
+    background: darken($darken, 1%);
+    color: #f6f6f6;
   }
 }
 </style>

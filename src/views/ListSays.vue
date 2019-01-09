@@ -1,15 +1,14 @@
 <template>
   <div>
-    <div class="container content-center">
+    <div class="col justify-center">
       <List id="list" ref="list" :data="items" field="text" header="PriVue" @speak="onSpeak()"></List>
       <div>
-        <Card>
-          <span>
-            <p>Dicas úteis:</p>
-            <p>- use o teclado número (0-9) para agilizar suas escolhas!</p>
-            <p>- use setas (cima, baixo) para mudança das opções e 'Enter' para selecionar.</p>
-            <p>- use o teclado básico abaixo ou clique sobre os itens</p>
-          </span>
+        <Card title="Dicas úteis">
+          <ul>
+            <li>- use o teclado número (0-9) para agilizar suas escolhas!</li>
+            <li>- use setas (cima, baixo) para mudança das opções e 'Enter' para selecionar.</li>
+            <li>- use o teclado básico abaixo ou clique sobre os itens</li>
+          </ul>
         </Card>
         <Keyboard @up="onUp" @down="onDown" @back="onBack" @select="onSelectItem($event)"></Keyboard>
       </div>
@@ -50,6 +49,7 @@ export default {
     initSynth() {
       if (!('speechSynthesis' in window)) {
         console.info('This browser is not supported!');
+        alert('Este navegador não é suportado! Recomendo o Google Chrome.')
       } else {
         this.synth = window.speechSynthesis;
         this.voices = this.synth.getVoices()

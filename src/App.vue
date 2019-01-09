@@ -17,6 +17,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import './styles/flex.scss';
 @import './styles/basic.scss';
 </style>

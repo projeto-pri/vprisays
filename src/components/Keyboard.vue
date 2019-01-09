@@ -1,43 +1,42 @@
 <template>
-  <div id="keyboard" class="container content-center">
-    <div class="row">
-      <button ref="btnUp" class="btn direction" @click="up()" type="button">
-        <v-icon icon="chevron-up"></v-icon>
-      </button>
-      <button ref="btnDown" class="btn direction" @click="down()" type="button">
-        <v-icon icon="chevron-down"></v-icon>
-      </button>
-      <button ref="btnSpeak" class="btn speak" @click="select()" type="button">
-        <v-icon icon="volume-up"></v-icon>
-      </button>
-    </div>
+  <div id="keyboard" class="row align-center justify-center">
+    <button class="btn--direction" @click="up()" @mouseup="removeFocus('btnDown')">
+      <v-icon icon="chevron-up"></v-icon>
+    </button>
+    <button ref="btnDown" class="btn--direction" @click="down()" @mouseup="removeFocus('btnDown')">
+      <v-icon icon="chevron-down"></v-icon>
+    </button>
+    <button class="btn--speak" @click="select()" @mouseup="removeFocus('btnDown')">
+      <v-icon icon="volume-up"></v-icon>
+    </button>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Keyboard',
+  name: "Keyboard",
   data: () => ({}),
   mounted() {
     this.watchKeyboard();
   },
   methods: {
-    emit(methodFather) { this.$emit(methodFather) },
+    emit(methodFather) {
+      this.$emit(methodFather);
+    },
+    removeFocus(ref) {
+      this.$refs[ref].blur();
+    },
     down() {
-      this.$refs.btnDown.blur();
-      this.emit('down');
+      this.emit("down");
     },
     up() {
-      this.$refs.btnUp.blur();
-      this.emit('up');
+      this.emit("up");
     },
     back() {
-      this.$refs.btnSpeak.blur();
-      this.emit('back');
+      this.emit("back");
     },
     select(index = undefined) {
-      this.$refs.btnSpeak.blur();
-      this.emit('select', index);
+      this.emit("select", index);
     },
     watchKeyboard() {
       document.addEventListener("keyup", this.keyMapper);
@@ -49,10 +48,10 @@ export default {
         38: () => this.up(),
         13: () => this.select(),
         8: () => this.back()
-      }
+      };
 
       if (key in actions) {
-        actions[key]()
+        actions[key]();
       } else if (this.keyIsNumber(key)) {
         const keyInNumber = key - 48;
         this.select(keyInNumber);
@@ -64,30 +63,29 @@ export default {
       return isNumber;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/mixins.scss';
-
 #keyboard {
   margin: 0 15px;
 }
 
 .btn {
-  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
   font-size: 2em;
-
-  &:focus { outline: none; }
+  &:focus {
+    outline: none;
+  }
 }
 
-.direction {
+.btn--direction {
+  @extend .btn;
   @include bg-adapter(#2ecc71);
 }
 
-.speak {
+.btn--speak {
+  @extend .btn;
   @include bg-adapter(#3498db);
 }
-
-
 </style>

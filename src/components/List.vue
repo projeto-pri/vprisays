@@ -5,7 +5,7 @@
         <v-icon icon="chevron-left"></v-icon>
       </button>
     </Header>
-    <div>
+    <div class="col">
       <template v-for="(item, index, key) in getData" class="items">
         <ItemList
           @onSelect="selectItem"
@@ -15,6 +15,7 @@
           :key="key"
         ></ItemList>
       </template>
+
       <template v-if="getData == []">
         <ItemList text="Sem itens"></ItemList>
       </template>
@@ -25,7 +26,6 @@
 <script>
 import ItemList from './ItemList';
 import Header from './Header';
-import Card from './Card';
 
 export default {
   name: 'List',
@@ -34,7 +34,10 @@ export default {
     field: { default: null },
     header: { default: null }
   },
-  components: { ItemList, Header, Card },
+  components: {
+    ItemList,
+    Header
+  },
   data: () => ({
     currentItem: 0,
     path: []
@@ -43,13 +46,13 @@ export default {
     up() {
       if (this.currentItem > 0) {
         this.currentItem--;
-      };
+      }
     },
     down() {
       const lenData = this.getData.length - 1;
       if (this.currentItem < lenData) {
         this.currentItem++;
-      };
+      }
     },
     back() {
       this.path.pop();
@@ -67,46 +70,41 @@ export default {
           this.currentItem = 0;
         } else {
           this.currentItem = index;
-          this.$emit('speak')
+          this.$emit('speak');
         }
       }
     },
     getText(item) {
-      return this.field ? item[this.field] : item
+      return this.field ? item[this.field] : item;
     }
   },
   computed: {
     getData() {
       let data = this.data;
       this.path.forEach(p => {
-        data = data[p].options
+        data = data[p].options;
       });
       return data;
     },
     currentText() {
-      let text = '';
+      let text = "";
       let _data = this.data;
       this.path.forEach(p => {
         text += this.getText(_data[p]) + ' ';
         _data = _data[p].options;
       });
-      text += this.getText(_data[this.currentItem])
+      text += this.getText(_data[this.currentItem]);
       return text;
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
-@import '../styles/mixins.scss';
-
-
 #list {
-  width: 100%;
-  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 5px 0px #00000033;
   border-radius: 4px;
   overflow: hidden;
-
 }
 
 .btn-back {
@@ -114,11 +112,11 @@ export default {
   font-size: 1.5em;
   border-radius: 100%;
   padding: 0.25em 0.5em;
-  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 2px 5px 0px #00000033;
 
   &:disabled {
-    background:darken(white, 40%);
-    color:darken(white, 50%);
+    background: darken(white, 40%);
+    color: darken(white, 50%);
   }
 
   * {
@@ -127,8 +125,8 @@ export default {
 }
 
 .active-item {
-  background-color: gray!important;
-  color: white!important;
-  box-shadow: inset 0px 1px 10px 0px rgba(0,0,0,0.2)
+  background-color: gray !important;
+  color: white !important;
+  box-shadow: inset 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
 }
 </style>

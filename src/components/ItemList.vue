@@ -1,6 +1,6 @@
 <template>
-  <div id="item" class="row items-center" @click="selected()">
-    <span v-if="index < 10" class="shortcut row items-center">
+  <div id="item" class="row" @click="selected()">
+    <span v-if="index < 10" class="shortcut row justify-start">
       <p>{{ index }}.</p>
       <v-icon icon="keyboard"></v-icon>
     </span>
@@ -15,22 +15,13 @@ export default {
   data: () => ({}),
   methods: {
     selected() {
-      this.$emit('onSelect', this.index)
+      this.$emit('onSelect', this.index);
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
-@import '../styles/mixins.scss';
-
-$hawkes-blue: #D1DCED;
-$ghost-white: #FBFBFC;
-$very-light-grey: #CECECE;
-$spun-pearl: #A3A3A4;
-$hawkes-blue: #E2E3E8;
-
-
 #item {
   @include bg-adapter(white);
   font-size: 1.3em;
@@ -40,7 +31,7 @@ $hawkes-blue: #E2E3E8;
 }
 
 .shortcut {
-  color:darken($color: white, $amount: 25%);
+  color: darken($color: white, $amount: 25%);
 
   p {
     margin: 0 5px;
@@ -50,5 +41,4 @@ $hawkes-blue: #E2E3E8;
 .text {
   margin-left: 15px;
 }
-
 </style>
