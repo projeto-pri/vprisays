@@ -73,7 +73,7 @@ export default {
     onSpeak() {
       const currentText = this.$refs.list.currentText
       this.speak(currentText)
-      this.onResetList();
+      setTimeout(() => this.onResetList(), 1500)
     }
   }
 }
