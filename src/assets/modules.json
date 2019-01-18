@@ -5,28 +5,70 @@
       { "text": "com fome" },
       { "text": "com sede" },
       { "text": "com frio" },
-      { "text": "com calor" }
+      { "text": "com calor" },
+      { "text": "com sono" },
+      { "text": "cansado" },
+      { "text": "febre" },
+      { "text": "enjoado" },
+      { "text": "tonto" },
+      { "text": "com dor" },
+      { "text": "me sentindo bem" },
+      { "text": "me sentindo mal" },
+      { "text": "me sentindo feliz" },
+      { "text": "me sentindo sozinho" },
+      { "text": "sentindo dor de cabeça" },
+      { "text": "sentindo dor nos braços" },
+      { "text": "sentindo dor na pés" },
+      { "text": "sentindo dor de barriga" }
     ]
   },
   {
     "text": "Eu preciso",
     "options": [
-        { "text": "usar o banheiro" },
-        { "text": "tomar um banho" },
-        { "text": "dormir" },
-        { "text": "tomar remédio" },
-        { "text": "de um médico" },
-        { "text": "de uma enfermeira" }
+      { "text": "usar o banheiro" },
+      { "text": "tomar um banho" },
+      { "text": "tomar o remédio" },
+      { "text": "ficar sozinho" },
+      { "text": "tomar remédio" },
+      { "text": "de ajuda" },
+      { "text": "de você" },
+      { "text": "de um médico" },
+      { "text": "de uma enfermeira" }
     ]
   },
   {
     "text": "Eu queria",
     "options": [
-        { "text": "um abraço" },
-        { "text": "um beijo" },
-        { "text": "sair daqui" },
-        { "text": "assistir" },
-        { "text": "mudar de canal" }
+      { "text": "um abraço" },
+      { "text": "um beijo" },
+      { "text": "mudar de posição" },
+      { "text": "assistir" },
+      { "text": "desligar a TV" },
+      { "text": "mudar de canal" },
+      { "text": "ligar o ar condicionado" },
+      { "text": "desligar o ar condicionado" },
+      { "text": "aumentar o ar condicionado" },
+      { "text": "diminuir o ar condicionado" }
+    ]
+  },
+  {
+    "text": "Eu não",
+    "options": [
+      { "text": "quero comer agora" },
+      { "text": "quero tomar banho agora" },
+      { "text": "estou conseguindo respirar" }
+    ]
+  },
+  {
+    "text": "Você poderia me dizer",
+    "options": [
+      { "text": "quando terei alta?" },
+      { "text": "se a medicação está correta?" },
+      { "text": "se notou alguma melhora?" },
+      { "text": "que horas são?" },
+      { "text": "que dia é hoje?" },
+      { "text": "se tem alguma novidade?" },
+      { "text": "como está minha família?" }
     ]
   }
 ]

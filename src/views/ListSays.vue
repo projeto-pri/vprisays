@@ -17,10 +17,11 @@
 </template>
 
 <script>
-import Keyboard from '../components/Keyboard';
-import List from '../components/List';
-import Card from '../components/Card';
-import dataJSON from '../assets/modules.json';
+import Keyboard from '@/components/Keyboard';
+import List from '@/components/List';
+import Card from '@/components/Card';
+
+import dataJSON from '@/assets/modules.json';
 
 export default {
   name: 'listSay',
