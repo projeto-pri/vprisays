@@ -108,10 +108,11 @@ export default {
 }
 
 .btn-back {
+  background: white;
   color: #666;
   font-size: 1.5em;
   border-radius: 100%;
-  padding: 0.25em 0.5em;
+  padding: 10px 15px;
   box-shadow: 0px 2px 5px 0px #00000033;
 
   &:disabled {
@@ -119,8 +120,8 @@ export default {
     color: darken(white, 50%);
   }
 
-  * {
-    margin-right: 2px;
+  & > * {
+    display: block
   }
 }
 
