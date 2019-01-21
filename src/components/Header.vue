@@ -1,5 +1,5 @@
 <template>
-  <div id="header">
+  <div id="HeaderTable">
     <h3 v-if="text">{{ text }}</h3>
     <slot></slot>
   </div>
@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#header {
+#HeaderTable {
   padding: 15px;
   user-select: none;
   border-radius: 4px 4px 0px 0px;

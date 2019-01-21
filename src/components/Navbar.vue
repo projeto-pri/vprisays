@@ -1,25 +1,35 @@
 <template>
-  <nav class="row wrap">
-    <a title="PriVue" to="/">
-      <h1 class="title-page">PriVue</h1>
-    </a>
+  <nav id="NavBar" class="row wrap">
+    <router-link to="/">
+      <a title="PriVue">
+        <h1 class="title-page">{{ title }}</h1>
+      </a>
+    </router-link>
     <ul class="navigation">
-      <li class="nav-item">Ajuda</li>
-      <li class="nav-item">Projeto</li>
-      <li class="nav-item">Contribuidores</li>
+      <router-link v-for="(link, index) in links" :key="index" :to="link.router">
+        <li class="nav-item">{{ link.name }}</li>
+      </router-link>
     </ul>
   </nav>
 </template>
 
 <script>
 export default {
-  name: "Navbar"
+  name: "Navbar",
+  data: () => ({
+    title: "PriVue",
+    links: [
+      { name: "Ajuda", router: "/ajuda" },
+      { name: "Projeto", router: "/ajuda" },
+      { name: "Contribuidores", router: "/ajuda" }
+    ]
+  })
 };
 </script>
 
 <style scoped lang="scss">
 nav {
-  background: $darken;
+  background: $primary;
   padding: 0 15px;
   color: white;
   margin-bottom: 15px;
@@ -56,13 +66,13 @@ nav {
 .nav-item {
   flex: 1;
   font-weight: 300;
-  color: #dedede;
+  color: #ffffff;
   font-size: 1.1em;
   padding: 1.1em;
+  cursor: pointer;
 
   &:hover {
-    background: darken($darken, 1%);
-    color: #f6f6f6;
+    background: darken($primary, 5%);
   }
 }
 </style>

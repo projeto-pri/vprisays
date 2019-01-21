@@ -1,5 +1,5 @@
 <template>
-  <div id="keyboard" class="row align-center justify-center">
+  <div id="Keyboard" class="row align-center justify-center">
     <button class="btn--direction" @click="up()" @mouseup="removeFocus('btnDown')">
       <v-icon icon="chevron-up"></v-icon>
     </button>
@@ -67,7 +67,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#keyboard {
+#Keyboard {
   margin: 0 15px;
 }
 

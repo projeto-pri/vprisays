@@ -1,5 +1,5 @@
 <template>
-  <div id="card">
+  <div id="Card">
     <h2 class="title" v-if="title">{{ title }}</h2>
     <slot></slot>
   </div>
@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#card {
+#Card {
   border-radius: 3px;
   margin: 16px;
   padding: 10px;

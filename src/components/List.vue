@@ -9,8 +9,8 @@
       <template v-for="(item, index, key) in getData" class="items">
         <ItemList
           @onSelect="selectItem"
-          :class="{'active-item': currentItem === index}"
           :text="getText(item)"
+          :focused="currentItem === index"
           :index="index"
           :key="key"
         ></ItemList>
@@ -124,9 +124,4 @@ export default {
   }
 }
 
-.active-item {
-  background-color: gray !important;
-  color: white !important;
-  box-shadow: inset 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
-}
 </style>
