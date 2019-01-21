@@ -15,6 +15,10 @@ module.exports = {
 
   pwa: {
     name: 'VPriSays',
-    themeColor: '#4085F5'
+    themeColor: '#4085F5',
+    workboxOptions: {
+      skipWaiting: true,
+      clientsClaim: true,
+    }
   }
 }
