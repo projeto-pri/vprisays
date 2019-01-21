@@ -1,3 +1,5 @@
+// Flexgrind Lightweight
+
 .flex {
   flex: 1;
 }
@@ -25,26 +27,45 @@
   flex-wrap: nowrap;
 }
 
+// Alignment
 .justify {
-  &-start {
+  &-start, .start {
     justify-content: start;
   }
-  &-center {
+  &-center, .center {
     justify-content: center;
   }
-  &-end {
+  &-end, .end {
     justify-content: end;
   }
+
+  // Distribution
+  &-between, .between {
+    justify-content: space-between;
+  }
+  &-around, .around {
+    justify-content: space-between;
+  }
+
 }
 
 .align {
-  &-start {
+  &-start, .top {
     align-items: flex-start;
   }
-  &-center {
+  &-center, .middle {
     align-items: center;
   }
-  &-end {
+  &-end, .bottom {
     align-items: flex-end;
+  }
+}
+
+// GRID >> COL-* (1-12)
+$total__cols: 12;
+
+@for $num from 1 through $total__cols {
+  .col-#{$num} {
+    flex-basis: (100 * $num / $total__cols );
   }
 }
