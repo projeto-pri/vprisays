@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
 import ListSays from './views/ListSays.vue'
 
 Vue.use(Router)
@@ -13,8 +14,13 @@ export default new Router({
       component: ListSays
     },
     {
+      path: '/404',
+      name: 'NotFound',
+      component: () => import('./views/404.vue')
+    },
+    {
       path: '*',
-      redirect: '/'
+      redirect: '/404'
     }
   ]
 })
