@@ -2,6 +2,7 @@ export default class SpeechService {
 
   constructor(lang='pt-BR', rate=1.0, pitch=1.0) {
     this.synth = this.initService();
+    this.getAsyncVoices();
     this.lang = lang;
     this.rate = rate;
     this.pitch = pitch;
@@ -13,6 +14,10 @@ export default class SpeechService {
     } else {
       return window.speechSynthesis;
     }
+  }
+
+  async getAsyncVoices() {
+    return this.synth.getVoices();
   }
 
   async speak(msg) {

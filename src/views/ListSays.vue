@@ -32,7 +32,7 @@ export default {
     synth: null,
     inProgress: false
   }),
-  async created() {
+  created() {
     this.items = dataJSON;
     this.synth = new SpeechService();
   },
