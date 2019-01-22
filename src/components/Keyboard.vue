@@ -1,12 +1,12 @@
 <template>
   <div id="Keyboard" class="row align-center justify-center">
-    <button class="btn--direction" @click="up()" @mouseup="removeFocus('btnDown')">
+    <button type="button" class="btn--direction" @click="up()" @mouseup="removeFocus('btnDown')">
       <v-icon icon="chevron-up"></v-icon>
     </button>
-    <button ref="btnDown" class="btn--direction" @click="down()" @mouseup="removeFocus('btnDown')">
+    <button type="button" ref="btnDown" class="btn--direction" @click="down()" @mouseup="removeFocus('btnDown')">
       <v-icon icon="chevron-down"></v-icon>
     </button>
-    <button class="btn--speak" @click="select()" @mouseup="removeFocus('btnDown')">
+    <button type="button" class="btn--speak" @click="select()" @mouseup="removeFocus('btnDown')">
       <v-icon icon="volume-up"></v-icon>
     </button>
   </div>

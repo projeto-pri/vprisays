@@ -1,7 +1,7 @@
 <template>
   <div id="list">
     <Header text="Opções">
-      <button :disabled="!this.path.length" class="btn-back" @click="back">
+      <button type="button" :disabled="!this.path.length" class="btn-back" @click="back">
         <v-icon icon="chevron-left"></v-icon>
       </button>
     </Header>
