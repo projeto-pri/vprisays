@@ -1,5 +1,5 @@
 <template>
-  <div id="ItemList" :class="[{'focused': focused}, 'row']" @click="selected()">
+  <div :class="[{'focused': focused}, 'itemList row']" @click="selected()">
     <span v-if="index < 10" class="shortcut row justify-start">
       <p>{{ index }}.</p>
       <v-icon icon="keyboard"></v-icon>
@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#ItemList {
+.itemList {
   @include bg-adapter(white);
   color: #444;
   font-size: 1.3em;

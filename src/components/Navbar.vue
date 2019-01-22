@@ -1,14 +1,15 @@
 <template>
   <nav id="NavBar" class="row wrap">
-    <router-link to="/">
-      <a title="PriVue">
-        <h1 class="title-page">{{ title }}</h1>
-      </a>
-    </router-link>
+    <a title="PriVue" @click="goTo('/')">
+      <h1 class="title-page">{{ title }}</h1>
+    </a>
     <ul class="navigation">
-      <router-link v-for="(link, index) in links" :key="index" :to="link.router">
-        <li class="nav-item">{{ link.name }}</li>
-      </router-link>
+      <li
+        class="nav-item"
+        v-for="(link, index) in links"
+        :key="index"
+        @click="goTo(link.router)"
+      >{{ link.name }}</li>
     </ul>
   </nav>
 </template>
@@ -17,13 +18,18 @@
 export default {
   name: "Navbar",
   data: () => ({
-    title: "PriVue",
+    title: "VPriSays",
     links: [
       { name: "Ajuda", router: "/ajuda" },
       { name: "Projeto", router: "/ajuda" },
       { name: "Contribuidores", router: "/ajuda" }
     ]
-  })
+  }),
+  methods: {
+    goTo(router) {
+      this.$router.push(router);
+    }
+  }
 };
 </script>
 
@@ -67,6 +73,7 @@ nav {
   flex: 1;
   font-weight: 300;
   color: #ffffff;
+  background: $primary;
   font-size: 1.1em;
   padding: 1.1em;
   cursor: pointer;

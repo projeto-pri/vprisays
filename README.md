@@ -1,4 +1,4 @@
-# [PriVue](https://vprisays.firebaseapp.com/#/)
+# [PriVue](http://vprisays.netlify.com)
 
 ## Project setup
 ```
