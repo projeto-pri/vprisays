@@ -19,6 +19,18 @@ export default new Router({
       component: () => import('./views/404.vue')
     },
     {
+      path: '/projeto',
+      beforeEnter(to, from, next) {
+        window.open('https://github.com/projeto-pri/vprisays', '_blank').focus()
+        next('/')
+      }
+    },
+    {
+      path: '/ajuda',
+      name: 'Ajuda',
+      component: () => import('./views/Ajuda.vue')
+    },
+    {
       path: '*',
       redirect: '/404'
     }

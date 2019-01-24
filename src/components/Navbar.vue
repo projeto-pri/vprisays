@@ -4,12 +4,12 @@
       <h1 class="title-page">{{ title }}</h1>
     </a>
     <ul class="navigation">
-      <li
-        class="nav-item"
-        v-for="(link, index) in links"
-        :key="index"
-        @click="goTo(link.router)"
-      >{{ link.name }}</li>
+      <template v-for="(item, index) in links">
+        <li class="nav-item" :key="index" @click="goTo(item.router)">
+          <span v-if="item.name">{{ item.name }}</span>
+          <v-icon v-if="item.icon" :icon="item.icon" size="lg" />
+        </li>
+      </template>
     </ul>
   </nav>
 </template>
@@ -20,9 +20,8 @@ export default {
   data: () => ({
     title: "VPriSays",
     links: [
-      { name: "Ajuda", router: "/ajuda" },
-      { name: "Projeto", router: "/ajuda" },
-      { name: "Contribuidores", router: "/ajuda" }
+      { name: 'Projeto', icon: ['fab', 'github'], router: "/projeto" },
+      { name: 'Ajuda', icon: 'question-circle', router: "/ajuda" },
     ]
   }),
   methods: {
@@ -40,10 +39,11 @@ nav {
   color: white;
   margin-bottom: 15px;
   justify-content: space-between;
+  align-items: center;
   box-shadow: 0px 2px 5px 0px #00000033;
 
-  @media screen and (max-width: 460px) {
-    justify-content: center;
+  @include sm {
+    flex-direction: column;
   }
 }
 
@@ -60,7 +60,7 @@ nav {
   justify-content: flex-end;
   align-items: flex-start;
 
-  * {
+  & > * {
     flex: 0 1 auto;
   }
 
@@ -71,6 +71,8 @@ nav {
 
 .nav-item {
   flex: 1;
+  display: inline-flex;
+  align-items: center;
   font-weight: 300;
   color: #ffffff;
   background: $primary;
@@ -80,6 +82,20 @@ nav {
 
   &:hover {
     background: darken($primary, 5%);
+  }
+
+  & > * {
+    flex: 1;
+  }
+
+  span {
+    @include sm() {
+      display: none;
+    }
+  }
+
+  svg {
+    margin: 0 5px;
   }
 }
 </style>
