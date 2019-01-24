@@ -62,7 +62,7 @@ export default {
       this.currentItem = 0;
       this.path = [];
     },
-    selectItem(index = this.currentItem) {
+    async selectItem(index = this.currentItem) {
       if (index < this.getData.length) {
         const existOptions = !!this.getData[index].options;
         if (existOptions) {

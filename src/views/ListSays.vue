@@ -17,16 +17,17 @@
 </template>
 
 <script>
-import Keyboard from "@/components/Keyboard";
-import List from "@/components/List";
-import Card from "@/components/Card";
 
+import SpeechService from "../plugins/speechService.js";
 import dataJSON from "@/assets/modules.json";
-import SpeechService from '../plugins/speechService.js';
 
 export default {
   name: "listSay",
-  components: { Keyboard, List, Card },
+  components: {
+    Keyboard: () => import('@/components/Keyboard'),
+    List: () => import('@/components/List'),
+    Card: () => import('@/components/Card')
+  },
   data: () => ({
     items: [],
     synth: null,
@@ -38,7 +39,7 @@ export default {
   },
 
   methods: {
-    onSpeak() {
+    async onSpeak() {
       if (this.inProgress === false) {
         const currentText = this.$refs.list.currentText;
 
@@ -70,7 +71,13 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+#ListSays {
+  @include lg {
+    padding: 0 20%;
+  }
+}
+
 #list {
   margin: 0 16px;
 }

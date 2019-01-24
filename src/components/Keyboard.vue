@@ -16,32 +16,29 @@
 export default {
   name: "Keyboard",
   data: () => ({}),
-  mounted() {
+  async mounted() {
     this.watchKeyboard();
   },
   methods: {
-    emit(methodFather) {
-      this.$emit(methodFather);
-    },
     removeFocus(ref) {
       this.$refs[ref].blur();
     },
     down() {
-      this.emit("down");
+      this.$emit("down");
     },
     up() {
-      this.emit("up");
+      this.$emit("up");
     },
     back() {
-      this.emit("back");
+      this.$emit("back");
     },
     select(index = undefined) {
-      this.emit("select", index);
+      this.$emit("select", index);
     },
     watchKeyboard() {
       document.addEventListener("keyup", this.keyMapper);
     },
-    keyMapper() {
+    async keyMapper() {
       const key = event.keyCode;
       const actions = {
         40: () => this.down(),
