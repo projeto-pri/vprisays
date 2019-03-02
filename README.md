@@ -1,5 +1,11 @@
 # [PriVue](http://vprisays.netlify.com)
 
+PriVue é um utilitário com várias falas prontas para pessoas com dificuldades ou deficiências.
+
+Para usar, acesse [Esse Link!](http://vprisays.netlify.com)
+
+
+
 ## Project setup
 ```
 yarn install

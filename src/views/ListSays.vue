@@ -3,11 +3,11 @@
     <div class="col justify-center">
       <List id="list" ref="list" :data="items" field="text" header="PriVue" @speak="onSpeak()"></List>
       <div id="Tips">
-        <Card title="Dicas úteis">
-          <ul>
-            <li>- use o teclado número (0-9) para agilizar suas escolhas!</li>
-            <li>- use setas (cima, baixo) para mudança das opções e 'Enter' para selecionar.</li>
-            <li>- use o teclado básico abaixo ou clique sobre os itens</li>
+        <Card title="Dicas de uso">
+          <ul class="lista-de-dicas">
+            <li>- Use o teclado numérico (0-9) para agilizar suas escolhas!</li>
+            <li>- Use setas (cima, baixo) para mudança das opções e 'Enter' para selecionar.</li>
+            <li>- Use o teclado básico abaixo ou clique sobre os itens</li>
           </ul>
         </Card>
         <Keyboard @up="onUp" @down="onDown" @back="onBack" @select="onSelectItem($event)"></Keyboard>
@@ -72,6 +72,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+.lista-de-dicas {
+  font-size: 20px;
+}
+
 #ListSays {
   @include lg {
     padding: 0 20%;
