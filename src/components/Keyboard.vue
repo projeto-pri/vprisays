@@ -3,7 +3,13 @@
     <button type="button" class="btn--direction" @click="up()" @mouseup="removeFocus('btnDown')">
       <v-icon icon="chevron-up"></v-icon>
     </button>
-    <button type="button" ref="btnDown" class="btn--direction" @click="down()" @mouseup="removeFocus('btnDown')">
+    <button
+      type="button"
+      ref="btnDown"
+      class="btn--direction"
+      @click="down()"
+      @mouseup="removeFocus('btnDown')"
+    >
       <v-icon icon="chevron-down"></v-icon>
     </button>
     <button type="button" class="btn--speak" @click="select()" @mouseup="removeFocus('btnDown')">
@@ -15,7 +21,6 @@
 <script>
 export default {
   name: "Keyboard",
-  data: () => ({}),
   async mounted() {
     this.watchKeyboard();
   },
@@ -38,26 +43,25 @@ export default {
     watchKeyboard() {
       document.addEventListener("keyup", this.keyMapper);
     },
-    async keyMapper() {
-      const key = event.keyCode;
+    async keyMapper(event) {
+      const key = event.key;
+
       const actions = {
-        40: () => this.down(),
-        38: () => this.up(),
-        13: () => this.select(),
-        8: () => this.back()
+        ArrowDown: () => this.down(),
+        ArrowUp: () => this.up(),
+        Enter: () => this.select(),
+        Backspace: () => this.back(),
+        Escape: () => this.back()
       };
 
       if (key in actions) {
         actions[key]();
-      } else if (this.keyIsNumber(key)) {
-        const keyInNumber = key - 48;
-        this.select(keyInNumber);
+      } else if (this.isNumber(key)) {
+        this.select(+key);
       }
     },
-    keyIsNumber(key) {
-      const _key = key - 48;
-      const isNumber = _key > -1 && _key < 10;
-      return isNumber;
+    isNumber(key) {
+      return -1 < +key !== NaN;
     }
   }
 };
