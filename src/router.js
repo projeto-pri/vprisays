@@ -26,11 +26,6 @@ export default new Router({
       }
     },
     {
-      path: '/ajuda',
-      name: 'Ajuda',
-      component: () => import('./views/Ajuda.vue')
-    },
-    {
       path: '*',
       redirect: '/404'
     }

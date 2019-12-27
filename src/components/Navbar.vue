@@ -19,10 +19,7 @@ export default {
   name: "Navbar",
   data: () => ({
     title: "VPriSays",
-    links: [
-      { name: 'Projeto', icon: ['fab', 'github'], router: "/projeto" },
-      { name: 'Ajuda', icon: 'question-circle', router: "/ajuda" },
-    ]
+    links: [{ name: "Projeto", icon: ["fab", "github"], router: "/projeto" }]
   }),
   methods: {
     goTo(router) {
